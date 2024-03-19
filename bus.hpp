@@ -17,12 +17,3 @@ You should have received a copy of the GNU General Public License along with
 openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
-#include "main.hpp"
-struct openmini::security {
-	struct aes;
-	struct sha;
-	struct crc;
-	struct rng;
-	struct hmac;
-	struct types;
-};
