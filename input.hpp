@@ -18,19 +18,27 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "../screen.hpp"
-struct openmini::screen::console {
-	uint8_t chr_width;
-	uint8_t chr_height;
-	console(); // initializes console
-	~console(); // destroys console resources
-	void print(const std::string); // prints text to the console
-	void putc(const uint8_t, uint8_t x, uint8_t y); // writes a character at a given position
-	uint8_t getX();
-	uint8_t getY();
-	void setX(uint8_t x);
-	void setY(uint8_t y);
-	void setXY(uint8_t x, uint8_t y);
-	void pause(); // pauses console activity to allow other drawing to occur
-	void resume(); // resumes console activity
+#include "main.hpp"
+#include <bitset>
+struct openmini::input {
+	enum button {
+		ctrl,
+		alt,
+		shift,
+		ok,
+		up,
+		down,
+		left,
+		right,
+		back,
+		home,
+		menu,
+		f1,
+		f2,
+		f3,
+		f4
+	};
+	bool poll(); // poll button states. returns true if any changes occurred.
+	std::bitset<16> active; // whether a button is active
+	std::bitset<16> changed; // whether a button's state changed in the last poll
 };

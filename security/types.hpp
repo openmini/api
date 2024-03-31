@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -19,6 +19,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../security.hpp"
+#include <cstdint>
 struct openmini::security::types {
 	template<uint16_t s = 0>
 	struct buffer {

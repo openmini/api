@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -20,6 +20,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "main.hpp"
 struct openmini::networking {
+	struct device;
 	struct wifi;
 	struct bluetooth;
 	struct zigbee;

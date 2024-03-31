@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -19,10 +19,8 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../networking.hpp"
+#include "device.hpp"
 struct openmini::networking::bluetooth {
-	struct device {
-		uint8_t mac[6];
-		std::string name;
-		float rssi;
-	};
+	struct device : openmini::networking::device {};
+	bool connect(device);
 };

@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -17,3 +17,15 @@ You should have received a copy of the GNU General Public License along with
 openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
+#pragma once
+#include "main.hpp"
+struct openmini::bus {
+	/*
+	struct uart;
+	struct i2c;
+	struct i3c;
+	struct usb;
+	struct i2s;
+	struct onewire;
+	*/
+};

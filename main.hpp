@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -26,4 +26,6 @@ struct openmini {
 	struct networking;
 	struct bus;
 	struct security;
+	struct storage;
+	struct modules;
 };

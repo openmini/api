@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -19,6 +19,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "main.hpp"
+#include <cstdint>
 struct openmini::screen {
 	std::string identity; // identity of the screen
 	uint16_t width; // the display's width

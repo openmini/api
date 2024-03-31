@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-Copyright 2024 openmini (openmini@gmail.com)
+Copyright 2024 openmini (copyright@openmini.org)
 
 This file is part of openmini.
 
@@ -19,29 +19,27 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../networking.hpp"
-#include <future>
+#include "device.hpp"
+#include <vector>
 struct openmini::networking::wifi {
-	struct access_point { // describes an access point
-		uint8_t bssid[6]; // mac address
-		std::string ssid;
-		float rssi;
-		enum security {
-			open, // open
-			wep, // wep
-			wpa1_psk, // wpa psk
-			wpa2_psk, // wpa2 psk
-			wpa2_enterprise, // wpa2 enterprise
-			wpa3_sae, // wpa3 sae
-			wpa12_psk, // wpa 1/2 psk
-			wpa23_psk, // wpa 2/3 psk/sae
-			owe // opportunistic wireless encryption
-		};
+	enum security {
+		open, // open
+		wep, // wep
+		wpa1_psk, // wpa psk
+		wpa2_psk, // wpa2 psk
+		wpa2_enterprise, // wpa2 enterprise
+		wpa3_sae, // wpa3 sae
+		wpa12_psk, // wpa 1/2 psk
+		wpa23_psk, // wpa 2/3 psk/sae
+		owe // opportunistic wireless encryption
+	};
+	struct access_point : openmini::networking::device { // describes an access point
+		security security;
 	};
 	struct broadcast; // for creating an access point
-	std::future<bool> connectAsync(access_point ap);
+	access_point activeNetwork;
 	bool connect(access_point ap);
-	void poll(access_point ap);
+	std::vector<access_point> search();
 	wifi(); // initializes the wifi subsystem
 	~wifi(); // shuts down the wifi subsystem
-
 };
