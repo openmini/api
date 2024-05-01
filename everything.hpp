@@ -17,31 +17,23 @@ You should have received a copy of the GNU General Public License along with
 openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
+
+// You probably don't want to use this file. This is mainly for API implementations.
 #pragma once
 #include "main.hpp"
-#include <cstdint>
-struct openmini::modules {
-	enum identifier : uint16_t {
-		unknown,
-		keyboard
-	};
-	struct protocol;
-	struct module {
-	public:
-		static const identifier id;
-		static const std::string name;
-	};
-	struct unknown; // unknown module
-	struct keyboard; // keyboard
-	// planned modules:
-	/*
-	struct usb; // usb ports
-	struct audio; // audio I/O and processing
-	struct probe; // multimeter probes and other similar devices
-	struct rpi; // raspberry pi
-	struct oscilloscope; // oscilloscope (returns processed data to save bandwidth over probe)
-	struct touch; // touch pads and screens
-	struct analog; // analog inputs, e.g. physical knobs and sliders
-	struct fpga; // :)
-	*/
-};
+#include "screen.hpp"
+#include "screen/console.hpp"
+#include "input.hpp"
+#include "networking.hpp"
+#include "networking/device.hpp"
+#include "networking/wifi.hpp"
+#include "networking/bluetooth.hpp"
+#include "bus.hpp"
+#include "bus/i2c.hpp"
+#include "bus/uart.hpp"
+#include "security.hpp"
+#include "security/types.hpp"
+#include "storage.hpp"
+#include "modules.hpp"
+#include "modules/protocol.hpp"
+#include "modules/keyboard.hpp"

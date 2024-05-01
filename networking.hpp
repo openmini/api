@@ -23,6 +23,4 @@ struct openmini::networking {
 	struct device;
 	struct wifi;
 	struct bluetooth;
-	struct zigbee;
-	struct tcpip;
 };

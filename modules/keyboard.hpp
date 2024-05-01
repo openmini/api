@@ -22,7 +22,9 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "../modules.hpp"
 #include <bitset>
-struct openmini::modules::keyboard {
+struct openmini::modules::keyboard : module {
+	static constexpr identifier id = identifier::keyboard;
+	static constexpr std::string name = "keyboard";
 	enum key {
 		left_ctrl,
 		right_ctrl,
@@ -32,13 +34,12 @@ struct openmini::modules::keyboard {
 		right_shift,
 		left_super,
 		right_super,
-		backspace,
-		tab,
 		enter,
+		backspace,
 		caps_lock,
+		tab,
 		page_up,
 		page_down,
-		fn,
 		f1,
 		f2,
 		f3,
@@ -51,9 +52,10 @@ struct openmini::modules::keyboard {
 		f10,
 		f11,
 		f12,
+		fn,
 		escape,
 		insert,
-		del, // can't name this key "delete" since it's an operator
+		del, // can't name this key "delete" since delete is an operator
 		home,
 		end,
 		space,
@@ -279,7 +281,7 @@ struct openmini::modules::keyboard {
 		custom_101,
 		custom_102,
 		custom_103,
-		custom_104
+		error
 	};
 	bool poll(); // should return true if any buttons have been pressed or released
 	std::bitset<256> active;

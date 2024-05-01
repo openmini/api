@@ -32,12 +32,12 @@ struct openmini::security::types {
 		uint8_t body[s];
 	};
 	template<int N>
-	using hash = void(buffer<> msg, buffer<N> *out); // hash-like functions
+	using hash = void(buffer<> msg, buffer<N> out); // hash-like functions
 	template<int IN, int ON, int KN>
 	using blockcipher = void(buffer<IN> msg, buffer<KN> key, buffer<ON> out); // block ciphers
 	template<int KN>
 	using cryptor = buffer<>(buffer<KN> key, buffer<> msg); // encryption, decryption, and other similar functions
 	template<int ON, int KN>
-	using keyedhash = buffer<ON>(buffer<KN> key, buffer<> msg); // so-called "keyed hashes", like HMACs and other similar functions
+	using keyedhash = void(buffer<KN> key, buffer<> msg, buffer<ON> out); // so-called "keyed hashes", like HMACs and other similar functions
 	
 };

@@ -1,0 +1,61 @@
+/*******************************************************************************
+
+Copyright 2024 openmini (copyright@openmini.org)
+
+This file is part of openmini.
+
+openmini is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+openmini is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+openmini. If not, see <https://www.gnu.org/licenses/>.
+
+*******************************************************************************/
+
+/*
+not actually a module, this file defines the standard bus protocol for the expansion port and card slot
+the module bus is based on uart (it uses a standard UART transciever for communication) but with some added wizardry to make it multidrop, hotpluggable, and half-duplex
+essentially, since the idle state of uart is high, we can add a diode from RX to TX to create a single XFER wire @ the RX pin
+this means that RX sees everything that's transmitted by any node's TX pin, and can check its output against its input
+so, in total, we have 4 wires:
+PWR, XFER, HOLD, and GND
+
+to send a message:
+
+	a:
+	if (HOLD==LOW) {
+		sleep(rand()*0.01);
+		goto a;
+	}
+	HOLD=LOW;
+	b:
+	UART.send(msg);
+	UART.recv(msg2);
+	if (msg!=msg2) {
+		HOLD=HIGH;
+		goto a;
+	}
+	HOLD=HIGH;
+
+this affords us 900 Kbps of data, more than enough to stream 128Kbps MP3 audio and a few screenfuls
+*/
+
+#pragma once
+#include "../modules.hpp"
+#include <list>
+struct openmini::modules::protocol {
+	struct message {
+		int id;
+		int dev;
+		int size;
+		uint8_t *buf;
+	};
+	std::list<message> incoming;
+	void send(message msg);
+};
