@@ -51,11 +51,12 @@ this affords us 900 Kbps of data, more than enough to stream 128Kbps MP3 audio a
 #include <list>
 struct openmini::modules::protocol {
 	struct message {
-		int id;
+		int addr;
 		int dev;
 		int size;
 		uint8_t *buf;
 	};
 	std::list<message> incoming;
 	void send(message msg);
+	void poll();
 };

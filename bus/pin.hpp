@@ -18,9 +18,17 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "main.hpp"
-struct openmini::bus {
-	struct pin;
-	struct uart;
-	struct i2c;
+#include "../bus.hpp"
+struct openmini::bus::pin {
+	enum mode { INPUT, OUTPUT };
+	struct analog {
+		mode getMode();
+		mode setMode(mode);
+		float get();
+		void set(float);
+	};
+	mode getMode();
+	mode setMode(mode);
+	bool get();
+	void set(bool);
 };

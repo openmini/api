@@ -18,9 +18,23 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "main.hpp"
-struct openmini::bus {
-	struct pin;
-	struct uart;
-	struct i2c;
+#include "../storage.hpp"
+#include "device.hpp"
+#include <array>
+
+struct openmini::storage::mbr {
+	device *underlying;
+	struct partition : openmini::storage::device { // transforms a partition into a type of device
+		device *parent;
+		uint8_t type;
+		uint32_t start;
+		uint32_t size;
+	};
+	std::array<partition, 4> partitions;
+	struct EBR { // the "extended boot record", a linked list of funny MBRs
+		device *underlying;
+		partition part;
+		EBR *next;
+	};
+	void check(); // check for partitions
 };

@@ -18,9 +18,19 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "main.hpp"
-struct openmini::bus {
-	struct pin;
-	struct uart;
-	struct i2c;
+#include "../storage.hpp"
+#include "device.hpp"
+#include <vector>
+
+struct openmini::storage::gpt {
+	device *underlying;
+	struct partition {
+		uint64_t type_l;
+		uint64_t type_h;
+		uint64_t id_l;
+		uint64_t id_h;
+		std::string label;
+		device underlying;
+	};
+	std::vector<partition> partitions;
 };

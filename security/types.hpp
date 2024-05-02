@@ -23,12 +23,12 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 struct openmini::security::types {
 	template<uint16_t s = 0>
 	struct buffer {
-		size_t size;
+		uint16_t size;
 		uint8_t *body;
 	};
 	template<uint16_t s> requires (s>0)
 	struct buffer<s> {
-		static constexpr size_t size = s;
+		static constexpr uint16_t size = s;
 		uint8_t body[s];
 	};
 	template<int N>

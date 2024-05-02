@@ -18,9 +18,4 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "main.hpp"
-struct openmini::bus {
-	struct pin;
-	struct uart;
-	struct i2c;
-};
+#include "../storage.hpp"

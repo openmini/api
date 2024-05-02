@@ -18,9 +18,13 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "main.hpp"
-struct openmini::bus {
-	struct pin;
-	struct uart;
-	struct i2c;
+#include "../storage.hpp"
+
+struct openmini::storage::filesystem {
+	enum mode {
+		R = 1,
+		W = 2,
+		RW = 3
+	};
+	file (*open)(std::string path, mode m);
 };

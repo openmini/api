@@ -20,16 +20,14 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "main.hpp"
 struct openmini::storage {
-	struct device; // e.g. sd, spi, usb
-	struct parttable; // e.g. mbr, gpt
+	struct device; // e.g. sd, spi, usb; also used for partitions
 	struct filesystem; // e.g. fat, ext4
 	struct file; // basic unit of data storage
 	struct sd; // sd and microsd cards
 	struct spi; // spi flash
-	struct ums; // usb mass storage
 	struct mbr; // master boot record
 	struct gpt; // global partition table
-	struct fat32; // file allocation table
+	struct fat32; // file allocation table (32-bit)
 	struct littlefs; // little filesystem
-	struct contikifs; // contiki filesystem
+	struct coffee; // contiki filesystem
 };
