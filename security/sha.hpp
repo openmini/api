@@ -17,31 +17,10 @@ You should have received a copy of the GNU General Public License along with
 openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
-
-// You probably don't want to use this file. This is mainly for API implementations.
 #pragma once
-#include "main.hpp"
-#include "bus/i2c.hpp"
-#include "bus/pin.hpp"
-#include "bus/uart.hpp"
-#include "modules/keyboard.hpp"
-#include "modules/protocol.hpp"
-#include "networking/device.hpp"
-#include "networking/wifi.hpp"
-#include "networking/bluetooth.hpp"
-#include "screen/console.hpp"
-#include "security/sha.hpp"
-#include "security/types.hpp"
-#include "storage/device.hpp"
-#include "storage/fat32.hpp"
-#include "storage/file.hpp"
-#include "storage/filesystem.hpp"
-#include "storage/gpt.hpp"
-#include "storage/mbr.hpp"
-#include "bus.hpp"
-#include "input.hpp"
-#include "modules.hpp"
-#include "networking.hpp"
-#include "screen.hpp"
-#include "security.hpp"
-#include "storage.hpp"
+#include "../security.hpp"
+#include "./types.hpp"
+struct openmini::security::sha {
+	types::hash<32> sha256;
+	types::hash<64> sha512;
+};

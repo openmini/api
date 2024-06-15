@@ -19,3 +19,9 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../storage.hpp"
+#include <cstdint>
+struct openmini::storage::file {
+	virtual void read(uint64_t pos, uint8_t *buf, uint32_t size);
+	virtual void write(uint64_t pos, uint8_t *buf, uint32_t size);
+	virtual void close();
+};

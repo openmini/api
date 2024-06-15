@@ -22,12 +22,8 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #include <cstdint>
 
 struct openmini::storage::device {
-	struct buffer {
-		int size;
-		uint8_t *buf;
-	};
 	uint64_t size;
-	int (*read)(uint32_t pos, buffer buf);
-	int (*write)(uint32_t pos, buffer buf);
-	int (*sync)();
+	virtual int read(uint32_t pos, uint8_t *buf, uint32_t size);
+	virtual int write(uint32_t pos, uint8_t *buf, uint32_t size);
+	virtual int sync();
 };

@@ -22,19 +22,21 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #include <cstdint>
 struct openmini::bus::i2c {
 	struct device {
+		i2c *underlying;
 		uint8_t addr;
 		int write(void *buf, int length);
 		int read(void *buf, int length);
 	};
 	struct device10 {
+		i2c *underlying;
 		uint16_t addr;
 		int write(void *buf, int length);
 		int read(void *buf, int length);
 	};
 	pin &scl, &sda; // references to pins
 	i2c(pin &scl, pin &sda); // throws on error (e.g. i2c not available for pins)
-	int write(uint8_t addr, void *buf, int length); // writes to 7-bit target, returns number of bytes written, throws on error
-	int read(uint8_t addr, void *buf, int length); // reads from 7-bit target, returns number of bytes read, throws on error
-	int write10(uint16_t addr, void *buf, int length); // writes to 10-bit target, returns number of bytes written, throws on error
-	int read10(uint16_t addr, void *buf, int length); // reads from 10-bit target, returns number of bytes read, throws on error
+	virtual int write(uint8_t addr, void *buf, int length); // writes to 7-bit target, returns number of bytes written, throws on error
+	virtual int read(uint8_t addr, void *buf, int length); // reads from 7-bit target, returns number of bytes read, throws on error
+	virtual int write10(uint16_t addr, void *buf, int length); // writes to 10-bit target, returns number of bytes written, throws on error
+	virtual int read10(uint16_t addr, void *buf, int length); // reads from 10-bit target, returns number of bytes read, throws on error
 };

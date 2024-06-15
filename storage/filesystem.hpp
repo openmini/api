@@ -19,6 +19,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../storage.hpp"
+#include <vector>
 
 struct openmini::storage::filesystem {
 	enum mode {
@@ -26,5 +27,6 @@ struct openmini::storage::filesystem {
 		W = 2,
 		RW = 3
 	};
-	file (*open)(std::string path, mode m);
+	virtual file *open(std::string path, mode m);
+	virtual std::vector<std::string> ls(std::string path);
 };

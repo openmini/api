@@ -23,27 +23,10 @@ not actually a module, this file defines the standard bus protocol for the expan
 the module bus is based on uart (it uses a standard UART transciever for communication) but with some added wizardry to make it multidrop, hotpluggable, and half-duplex
 essentially, since the idle state of uart is high, we can add a diode from RX to TX to create a single XFER wire @ the RX pin
 this means that RX sees everything that's transmitted by any node's TX pin, and can check its output against its input
-so, in total, we have 4 wires:
-PWR, XFER, HOLD, and GND
+so, in total, we have 3 wires:
+PWR, XFER, and GND
 
-to send a message:
-
-	a:
-	if (HOLD==LOW) {
-		sleep(rand()*0.01);
-		goto a;
-	}
-	HOLD=LOW;
-	b:
-	UART.send(msg);
-	UART.recv(msg2);
-	if (msg!=msg2) {
-		HOLD=HIGH;
-		goto a;
-	}
-	HOLD=HIGH;
-
-this affords us 900 Kbps of data, more than enough to stream 128Kbps MP3 audio and a few screenfuls
+this affords us 800 Kbps of data, more than enough to stream 128Kbps MP3 audio
 */
 
 #pragma once

@@ -33,10 +33,10 @@ struct openmini::input {
 		back,
 		home,
 		menu,
+		quit,
 		f1,
 		f2,
-		f3,
-		f4
+		f3
 	};
 	bool poll(); // poll button states. returns true if any changes occurred.
 	std::bitset<16> active; // whether a button is active

@@ -22,13 +22,13 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 struct openmini::bus::pin {
 	enum mode { INPUT, OUTPUT };
 	struct analog {
-		mode getMode();
-		mode setMode(mode);
-		float get();
-		void set(float);
+		virtual mode getMode();
+		virtual mode setMode(mode);
+		virtual float get();
+		virtual void set(float);
 	};
-	mode getMode();
-	mode setMode(mode);
-	bool get();
-	void set(bool);
+	virtual mode getMode();
+	virtual mode setMode(mode);
+	virtual bool get();
+	virtual void set(bool);
 };
