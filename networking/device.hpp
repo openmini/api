@@ -20,6 +20,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "../networking.hpp"
 #include <cstdint>
+#include <string>
 struct openmini::networking::device {
 	uint8_t mac[6]; // mac address
 	std::string name; // name
