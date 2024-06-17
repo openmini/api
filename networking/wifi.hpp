@@ -38,8 +38,8 @@ struct openmini::networking::wifi {
 	};
 	struct broadcast; // for creating an access point
 	access_point activeNetwork;
-	bool connect(access_point ap);
-	std::vector<access_point> search();
+	virtual bool connect(access_point ap);
+	virtual std::vector<access_point> search();
 	wifi(); // initializes the wifi subsystem
 	~wifi(); // shuts down the wifi subsystem
 };

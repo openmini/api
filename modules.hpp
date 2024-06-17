@@ -20,6 +20,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "main.hpp"
 #include <cstdint>
+#include <string>
 struct openmini::modules {
 	enum identifier : uint16_t {
 		unknown,

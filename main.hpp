@@ -18,9 +18,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include <string>
 struct openmini {
-	std::string identity;
 	struct screen;
 	struct input;
 	struct networking;

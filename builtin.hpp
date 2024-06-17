@@ -19,17 +19,18 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "./main.hpp"
-#include "./modules/keyboard.hpp"
 #include "./modules/protocol.hpp"
 #include "./bus/gpio.hpp"
+#include "./storage.hpp"
+#include "./storage/filesystem.hpp"
 struct openmini::builtin {
 	static screen &screen;
-	static struct modules::keyboard &keyboard;
+	static input &input;
 	static modules::protocol &module_bus;
 	static bus::uart &debug;
 	struct gpio {
 		static bus::gpio &digital;
 		static bus::gpio::analog &analog;
 	};
-	
+	static storage::filesystem &fs;
 };

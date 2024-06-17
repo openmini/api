@@ -20,7 +20,6 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "../storage.hpp"
 #include <cstdint>
-
 struct openmini::storage::device {
 	uint64_t size;
 	virtual int read(uint32_t pos, uint8_t *buf, uint32_t size);

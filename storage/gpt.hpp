@@ -20,6 +20,7 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "../storage.hpp"
 #include "device.hpp"
+#include <string>
 #include <vector>
 
 struct openmini::storage::gpt {

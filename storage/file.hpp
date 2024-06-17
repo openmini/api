@@ -19,8 +19,15 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../storage.hpp"
+#include "./device.hpp"
 #include <cstdint>
-struct openmini::storage::file {
+struct openmini::storage::file : openmini::storage::device {
+	enum mode {
+		R = 1,
+		W = 2,
+		RW = 3
+	};
+	const mode m;
 	virtual void read(uint64_t pos, uint8_t *buf, uint32_t size);
 	virtual void write(uint64_t pos, uint8_t *buf, uint32_t size);
 	virtual void close();
