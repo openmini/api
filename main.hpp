@@ -28,4 +28,5 @@ struct openmini {
 	struct security;
 	struct storage;
 	struct modules;
+	struct builtin;
 };

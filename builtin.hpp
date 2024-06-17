@@ -18,10 +18,18 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "../bus.hpp"
-struct openmini::bus::uart {
-	pin &tx, &rx;
-	uart(pin tx, pin rx);
-	int send(void *buf, int length);
-	int recv(void *buf, int length);
+#include "./main.hpp"
+#include "./modules/keyboard.hpp"
+#include "./modules/protocol.hpp"
+#include "./bus/gpio.hpp"
+struct openmini::builtin {
+	static screen &screen;
+	static struct modules::keyboard &keyboard;
+	static modules::protocol &module_bus;
+	static bus::uart &debug;
+	struct gpio {
+		static bus::gpio &digital;
+		static bus::gpio::analog &analog;
+	};
+	
 };

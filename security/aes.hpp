@@ -18,10 +18,5 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "../bus.hpp"
-struct openmini::bus::uart {
-	pin &tx, &rx;
-	uart(pin tx, pin rx);
-	int send(void *buf, int length);
-	int recv(void *buf, int length);
-};
+#include "../security.hpp"
+struct openmini::security::aes {};

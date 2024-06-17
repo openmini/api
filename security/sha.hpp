@@ -19,8 +19,16 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../security.hpp"
-#include "./types.hpp"
 struct openmini::security::sha {
-	types::hash<32> sha256;
-	types::hash<64> sha512;
+	struct sha2_224;
+	struct sha2_256;
+	struct sha2_384;
+	struct sha2_512;
+	struct sha3_224;
+	struct sha3_256;
+	struct sha3_384;
+	struct sha3_512;
+	struct sha3_shake128;
+	struct sha3_shake256;
+	struct sha3_common;
 };

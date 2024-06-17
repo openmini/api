@@ -43,6 +43,6 @@ struct openmini::modules::protocol {
 		uint8_t *buf;
 	};
 	std::list<message> incoming;
-	void send(message msg);
-	void poll();
+	virtual void send(message msg);
+	virtual void poll();
 };

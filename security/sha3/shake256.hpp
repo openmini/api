@@ -18,10 +18,17 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 
 *******************************************************************************/
 #pragma once
-#include "../bus.hpp"
-struct openmini::bus::uart {
-	pin &tx, &rx;
-	uart(pin tx, pin rx);
-	int send(void *buf, int length);
-	int recv(void *buf, int length);
+#include "../sha.hpp"
+#include "../types.hpp"
+#include <array>
+#include <vector>
+struct openmini::security::sha::sha3_shake256 {
+	sha3_shake256();
+	void update(types::buffer<> buf);
+	void update(uint8_t *buf, int size);
+	std::vector<uint32_t> digest(int size);
+private:
+	std::array<uint8_t,200> state;
+	int block_position;
+	std::array<uint8_t,200> finalState;
 };

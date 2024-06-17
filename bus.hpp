@@ -23,4 +23,5 @@ struct openmini::bus {
 	struct pin;
 	struct uart;
 	struct i2c;
+	struct gpio;
 };

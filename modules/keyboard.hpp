@@ -283,7 +283,7 @@ struct openmini::modules::keyboard : module {
 		custom_103,
 		error
 	};
-	bool poll(); // should return true if any buttons have been pressed or released
+	virtual bool poll(); // should return true if any buttons have been pressed or released
 	std::bitset<256> active;
 	std::bitset<256> changes;
 };

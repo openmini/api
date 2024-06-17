@@ -27,9 +27,8 @@ struct openmini::modules {
 	};
 	struct protocol;
 	struct module {
-	public:
-		static constexpr identifier id {};
-		static constexpr std::string name {};
+		static constexpr identifier id {unknown};
+		static constexpr std::string name {""};
 	};
 	struct unknown; // unknown module
 	struct keyboard; // keyboard
