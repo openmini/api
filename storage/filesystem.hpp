@@ -19,10 +19,11 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../storage.hpp"
+#include <memory>
 #include <string>
 #include <vector>
 
 struct openmini::storage::filesystem {
-	virtual file &open(std::string path, bool ro = true);
+	virtual std::unique_ptr<file> open(std::string path, bool ro = true);
 	virtual std::vector<std::string> ls(std::string path);
 };
