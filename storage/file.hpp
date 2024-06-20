@@ -22,13 +22,9 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #include "./device.hpp"
 #include <cstdint>
 struct openmini::storage::file : openmini::storage::device {
-	enum mode {
-		R = 1,
-		W = 2,
-		RW = 3
-	};
-	const mode m = mode(0);
+	const bool readonly = true;
 	virtual void read(uint64_t pos, void *buf, uint32_t size);
 	virtual void write(uint64_t pos, void *buf, uint32_t size);
+	virtual void resize(uint64_t pos);
 	virtual void close();
 };
