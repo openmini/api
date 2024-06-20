@@ -23,11 +23,6 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #include <vector>
 
 struct openmini::storage::filesystem {
-	enum mode {
-		R = 1,
-		W = 2,
-		RW = 3
-	};
-	virtual file &open(std::string path, mode m);
+	virtual file &open(std::string path, bool ro = true);
 	virtual std::vector<std::string> ls(std::string path);
 };
