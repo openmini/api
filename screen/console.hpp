@@ -20,9 +20,10 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "../screen.hpp"
 struct openmini::screen::console {
+	screen &scr;
 	uint8_t chr_width;
 	uint8_t chr_height;
-	console(); // initializes console
+	console(screen&); // initializes console
 	~console(); // destroys console resources
 	void print(const std::string); // prints text to the console
 	void putc(const uint8_t, uint8_t x, uint8_t y); // writes a character at a given position

@@ -22,6 +22,6 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 struct openmini::bus::uart {
 	pin &tx, &rx;
 	uart(pin tx, pin rx);
-	int send(void *buf, int length);
-	int recv(void *buf, int length);
+	virtual int send(void *buf, int length);
+	virtual int recv(void *buf, int length);
 };

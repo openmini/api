@@ -22,7 +22,6 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 #include <cstdint>
 #include <string>
 struct openmini::screen {
-	static screen& builtin;
 	std::string identity; // identity of the screen
 	uint16_t width; // the display's width
 	uint16_t height; // the display's height

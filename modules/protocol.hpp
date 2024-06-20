@@ -34,7 +34,6 @@ this affords us 800 Kbps of data, more than enough to stream 128Kbps MP3 audio
 #include "../bus/uart.hpp"
 #include <list>
 struct openmini::modules::protocol {
-	static protocol bus;
 	openmini::bus::uart *underlying;
 	struct message {
 		int addr;
