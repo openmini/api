@@ -28,7 +28,7 @@ struct openmini::storage::file : openmini::storage::device {
 		RW = 3
 	};
 	const mode m = mode(0);
-	virtual void read(uint64_t pos, uint8_t *buf, uint32_t size);
-	virtual void write(uint64_t pos, uint8_t *buf, uint32_t size);
+	virtual void read(uint64_t pos, void *buf, uint32_t size);
+	virtual void write(uint64_t pos, void *buf, uint32_t size);
 	virtual void close();
 };
