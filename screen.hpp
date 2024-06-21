@@ -28,7 +28,7 @@ struct openmini::screen {
 	bool canSync; // whether the display is capable of v-sync
 	class console; // a low-level console used for debugging and early init logs
 	screen();
-	virtual void draw(uint16_t *buf, uint16_t x, uint16_t y, uint8_t width, uint8_t height);
+	virtual void draw(uint16_t *buf, int16_t x, int16_t y, uint8_t width, uint8_t height);
 	virtual void sync();
 	virtual void setSync(bool enabled);
 };
