@@ -29,6 +29,7 @@ struct openmini::screen {
 	class console; // a low-level console used for debugging and early init logs
 	screen();
 	virtual void draw(uint16_t *buf, int16_t x, int16_t y, uint8_t width, uint8_t height);
+	virtual void fill(int16_t x, int16_t y, uint8_t width, uint8_t height, uint16_t color);
 	virtual void sync();
 	virtual void setSync(bool enabled);
 };
