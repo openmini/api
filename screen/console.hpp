@@ -26,6 +26,8 @@ struct openmini::screen::console {
 	uint8_t chr_height;
 	uint8_t pos_x;
 	uint8_t pos_y;
+	uint8_t width;
+	uint8_t height;
 	std::vector<char> state;
 	console(screen&); // initializes console
 	~console(); // destroys console resources
