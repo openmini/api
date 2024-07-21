@@ -33,6 +33,4 @@ struct openmini::screen::console {
 	~console(); // destroys console resources
 	void print(const std::string); // prints text to the console
 	void putc(const uint8_t, uint8_t x, uint8_t y); // writes a character at a given position
-	void pause(); // pauses console activity to allow other drawing to occur
-	void resume(); // resumes console activity
 };
