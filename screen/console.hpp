@@ -19,12 +19,14 @@ openmini. If not, see <https://www.gnu.org/licenses/>.
 *******************************************************************************/
 #pragma once
 #include "../screen.hpp"
+#include <vector>
 struct openmini::screen::console {
 	screen &scr;
 	uint8_t chr_width;
 	uint8_t chr_height;
 	uint8_t pos_x;
 	uint8_t pos_y;
+	std::vector<char> state;
 	console(screen&); // initializes console
 	~console(); // destroys console resources
 	void print(const std::string); // prints text to the console
